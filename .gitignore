@@ -132,3 +132,6 @@ dist
 # config files
 *-config.json
 !example-config.json
+
+# ignore influx2-data folder
+influx2-data/
