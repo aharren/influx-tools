@@ -12,10 +12,7 @@ async function main() {
   }
 
   const db = require('./lib/influx2')();
-  const timeStart = new Date(paramTimeStart).toISOString();
-  const timeEnd = new Date(paramTimeEnd).toISOString();
-
-  const datapoints = await db.datapoints(paramBucket, paramMeasurement, timeStart, timeEnd);
+  const datapoints = await db.datapoints(paramBucket, paramMeasurement, paramTimeStart, paramTimeEnd);
   db.removeInternalsFromDatapoints(datapoints);
   console.log(datapoints);
 }
