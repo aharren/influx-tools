@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@influxdata/influxdb-client": "^1.33.2",
-    "@influxdata/influxdb-client-apis": "^1.33.2"
+    "@influxdata/influxdb-client-apis": "^1.33.2",
+    "easy-table": "^1.2.0"
   }
 }

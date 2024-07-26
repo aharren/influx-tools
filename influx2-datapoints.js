@@ -2,6 +2,8 @@
 
 'use strict';
 
+const table = require('easy-table');
+
 async function main() {
   const paramBucket = process.argv[2] || '';
   const paramTimeStart = process.argv[3] || '';
@@ -14,7 +16,17 @@ async function main() {
   const db = require('./lib/influx2')();
   const datapoints = await db.datapoints(paramBucket, paramMeasurement, paramTimeStart, paramTimeEnd);
   db.removeInternalsFromDatapoints(datapoints);
-  console.log(JSON.stringify(datapoints, null, 2));
+
+  const outputFormat = process.env['INFLUX2_OUTPUT_FORMAT'] || 'json';
+  switch (outputFormat) {
+    case 'table':
+      console.log(table.print(datapoints));
+      break;
+    case 'json':
+    default:
+      console.log(JSON.stringify(datapoints, null, 2));
+      break;
+  }
 }
 
 require('./lib/main')(main);
