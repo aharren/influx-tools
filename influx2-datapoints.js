@@ -14,7 +14,7 @@ async function main() {
   const db = require('./lib/influx2')();
   const datapoints = await db.datapoints(paramBucket, paramMeasurement, paramTimeStart, paramTimeEnd);
   db.removeInternalsFromDatapoints(datapoints);
-  console.log(datapoints);
+  console.log(JSON.stringify(datapoints, null, 2));
 }
 
 require('./lib/main')(main);
