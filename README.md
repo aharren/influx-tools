@@ -99,3 +99,11 @@ If `INFLUX2_COMPRESS` is defined, all files will be compressed using gzip, e.g.
 ```
 INFLUX2_COMPRESS=1 ./influx2-export-datapoints.js mybucket 2024-07-19 2024-07-22 mymeasurement1 mymeasurement2 mymeasurement3
 ```
+
+### influx2-import-datapoints
+
+Import all data points for the given measurements in the given bucket within the given time frame.
+
+```
+./influx2-import-datapoints.js mybucket 2024-07-19 2024-07-22 mymeasurement1 mymeasurement2 mymeasurement3
+```
