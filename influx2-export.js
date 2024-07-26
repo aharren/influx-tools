@@ -38,8 +38,11 @@ async function main() {
 
   const db = require('./lib/influx2')();
   const measurements = process.argv.slice(paramMeasurementsStart, paramMeasurementsEnd);
-  const timeStart = new Date(paramTimeStart);
-  const timeEnd = new Date(paramTimeEnd);
+  const paramTimeStartDate = new Date(paramTimeStart);
+  const paramTimeEndDate = new Date(paramTimeEnd);
+
+  const timeStart = new Date(Date.UTC(paramTimeStartDate.getFullYear(), paramTimeStartDate.getMonth(), paramTimeStartDate.getDate(), 0, 0, 0));
+  const timeEnd = new Date(Date.UTC(paramTimeEndDate.getFullYear(), paramTimeEndDate.getMonth(), paramTimeEndDate.getDate(), 0, 0, 0));
 
   const timeWindowDayDelta = 24 * 60 * 60 * 1000;
   for (let timeWindowStart = timeStart.getTime(); timeWindowStart < timeEnd.getTime(); timeWindowStart += timeWindowDayDelta) {

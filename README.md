@@ -51,7 +51,7 @@ List the measurements in the given bucket.
 
 ### influx2-datapoints
 
-Query all data points for the given measurement in the given bucket within the given time frame.
+Query all data points for the given measurement in the given bucket within the given time frame [start, end[.
 
 ```
 ./influx2-datapoints.js mybucket 2024-07-19T00:00:00Z 2024-07-21T12:00:00Z mymeasurement
@@ -59,11 +59,11 @@ Query all data points for the given measurement in the given bucket within the g
 
 ### influx2-export
 
-Export all data points for the given measurements in the given bucket within the given time frame.
+Export all data points for the given measurements in the given bucket within the given time frame. Data is exported on a full-day basis for the day interval [start, end[.
 
 
 ```
-./influx2-export.js mybucket 2024-07-19T00:00:00Z 2024-07-21T12:00:00Z mymeasurement1 mymeasurement2 mymeasurement3
+./influx2-export.js mybucket 2024-07-19 2024-07-22 mymeasurement1 mymeasurement2 mymeasurement3
 ```
 
 The exported data points are stored in a hierarchical folder structure, using one file per measurement and day:
