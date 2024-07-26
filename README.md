@@ -57,6 +57,14 @@ Query all data points for the given measurement in the given bucket within the g
 ./influx2-datapoints.js mybucket 2024-07-19T00:00:00Z 2024-07-21T12:00:00Z mymeasurement
 ```
 
+### influx2-delete-datapoints
+
+Delete all data points for the given measurement in the given bucket within the given time frame [start, end[.
+
+```
+./influx2-delete-datapoints.js mybucket 2024-07-19T00:00:00Z 2024-07-21T12:00:00Z mymeasurement
+```
+
 ### influx2-export
 
 Export all data points for the given measurements in the given bucket within the given time frame. Data is exported on a full-day basis for the day interval [start, end[.
