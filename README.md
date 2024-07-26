@@ -72,18 +72,18 @@ The exported data points are stored in a hierarchical folder structure, using on
 influx2-data/
   2024/
     07/
-      2024-07-19Z/
-        mymeasurement1.json[.gz]
-        mymeasurement2.json[.gz]
-        mymeasurement3.json[.gz]
-      2024-07-20Z/
-        mymeasurement1.json[.gz]
-        mymeasurement2.json[.gz]
-        mymeasurement3.json[.gz]
-      2024-07-21Z/
-        mymeasurement1.json[.gz]
-        mymeasurement2.json[.gz]
-        mymeasurement3.json[.gz]
+      19/
+        2024-07-19Z-mymeasurement1.json[.gz]
+        2024-07-19Z-mymeasurement2.json[.gz]
+        2024-07-19Z-mymeasurement3.json[.gz]
+      20/
+        2024-07-20Z-mymeasurement1.json[.gz]
+        2024-07-20Z-mymeasurement2.json[.gz]
+        2024-07-20Z-mymeasurement3.json[.gz]
+      21/
+        2024-07-21Z-mymeasurement1.json[.gz]
+        2024-07-21Z-mymeasurement2.json[.gz]
+        2024-07-21Z-mymeasurement3.json[.gz]
 ```
 
 If `INFLUX2_COMPRESS` is defined, all files will be compressed using gzip, e.g.

@@ -10,11 +10,13 @@ function storagePathForTimestamp(timestamp) {
   return `influx2-data`
     + `${path.sep}${timestamp.getUTCFullYear()}`
     + `${path.sep}${(timestamp.getUTCMonth() + 1).toString().padStart(2, '0')}`
-    + `${path.sep}${timestamp.getUTCFullYear()}-${(timestamp.getUTCMonth() + 1).toString().padStart(2, '0')}-${timestamp.getUTCDate().toString().padStart(2, '0')}Z`;
+    + `${path.sep}${(timestamp.getUTCDate()).toString().padStart(2, '0')}`
 }
 
-function fileNameForMeasurement(storagePath, measurement, compress) {
-  return `${storagePath}${path.sep}${measurement}.json${compress ? '.gz' : ''}`;
+function fileNameForMeasurement(storagePath, timestamp, measurement, compress) {
+  const timestampString = `${timestamp.getUTCFullYear()}-${(timestamp.getUTCMonth() + 1).toString().padStart(2, '0')}-${timestamp.getUTCDate().toString().padStart(2, '0')}Z`;
+  return `${storagePath}`
+    + `${path.sep}${timestampString}-${measurement}.json${compress ? '.gz' : ''}`;
 }
 
 function fileContentForDatapoints(datapoints, compress) {
@@ -56,7 +58,7 @@ async function main() {
 
       if (datapoints.length > 0) {
         console.log(`  - ${measurement} .. ${datapoints.length}`);
-        const file = fileNameForMeasurement(storagePath, measurement, compress);
+        const file = fileNameForMeasurement(storagePath, timeWindowStartDate, measurement, compress);
         const content = fileContentForDatapoints(datapoints, compress);
         await fsp.writeFile(file, content);
       }
