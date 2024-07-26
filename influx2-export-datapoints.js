@@ -13,7 +13,7 @@ async function main() {
   const paramMeasurementsStart = 5;
   const paramMeasurementsEnd = process.argv.length;
   if (!paramBucket || !paramTimeStart || !paramTimeEnd || paramMeasurementsEnd <= paramMeasurementsStart) {
-    throw Error('usage: influx2-export <bucket> <start> <end> <measurement> [<measurement> [...]]');
+    throw Error('usage: influx2-export-datapoints <bucket> <start> <end> <measurement> [<measurement> [...]]');
   }
 
   const compress = process.env['INFLUX2_COMPRESS'] || '';

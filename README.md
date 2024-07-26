@@ -65,13 +65,13 @@ Delete all data points for the given measurement in the given bucket within the 
 ./influx2-delete-datapoints.js mybucket 2024-07-19T00:00:00Z 2024-07-21T12:00:00Z mymeasurement
 ```
 
-### influx2-export
+### influx2-export-datapoints
 
 Export all data points for the given measurements in the given bucket within the given time frame. Data is exported on a full-day basis for the day interval [start, end[.
 
 
 ```
-./influx2-export.js mybucket 2024-07-19 2024-07-22 mymeasurement1 mymeasurement2 mymeasurement3
+./influx2-export-datapoints.js mybucket 2024-07-19 2024-07-22 mymeasurement1 mymeasurement2 mymeasurement3
 ```
 
 The exported data points are stored in a hierarchical folder structure, using one file per measurement and day:
@@ -97,5 +97,5 @@ influx2-data/
 If `INFLUX2_COMPRESS` is defined, all files will be compressed using gzip, e.g.
 
 ```
-INFLUX2_COMPRESS=1 ./influx2-export.js mybucket 2024-07-19 2024-07-22 mymeasurement1 mymeasurement2 mymeasurement3
+INFLUX2_COMPRESS=1 ./influx2-export-datapoints.js mybucket 2024-07-19 2024-07-22 mymeasurement1 mymeasurement2 mymeasurement3
 ```
